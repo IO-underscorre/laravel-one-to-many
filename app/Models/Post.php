@@ -16,4 +16,9 @@ class Post extends Model
         'reading_time',
         'is_archived',
     ];
+
+    public function postType()
+    {
+        return $this->belongsTo(PostType::class);
+    }
 }
