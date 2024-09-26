@@ -1,0 +1,8 @@
+@use '../generals/variables' as *;
+@use '../generals/mixins' as *;
+
+.admin-top-bar {
+    .navbar-brand>img {
+        height: $logo-hgt-sm;
+    }
+}
