@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DasboardController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\PostTypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DasboardController::class, 'index'])->name('home');
 
     Route::resource('posts', PostController::class);
-    Route::resource('post-types', PostController::class);
+    Route::resource('post-types', PostTypeController::class)->except(['show', 'edit', 'update', 'create']);
 });
 
 
