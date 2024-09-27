@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-2">
         <h2 class="fs-4 text-primary my-4">
             Create a new post
         </h2>
