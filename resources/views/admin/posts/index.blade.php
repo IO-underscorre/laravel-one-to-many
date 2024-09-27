@@ -12,8 +12,8 @@
             </div>
 
             <ul class="list-group list-group-flush d-flex">
-                <li class="list-group-item">
-                    <table class="table table-striped table-hover align-middle">
+                <li class="list-group-item overflow-auto p-0">
+                    <table class="table table-striped table-hover align-middle mb-0">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-primary col-1">#</th>
