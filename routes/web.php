@@ -23,6 +23,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DasboardController::class, 'index'])->name('home');
 
     Route::resource('posts', PostController::class);
+    Route::resource('post-types', PostController::class);
 });
 
 
