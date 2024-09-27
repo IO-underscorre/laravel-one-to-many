@@ -13,5 +13,10 @@ return [
             'route_name' => 'admin.posts.index',
             'menu_icon' => '<i class="fa-solid fa-window-restore"></i>',
         ],
+        [
+            'menu_text' => 'TYPES',
+            'route_name' => 'admin.post-types.index',
+            'menu_icon' => '<i class="fa-solid fa-flag"></i>',
+        ],
     ],
 ];
