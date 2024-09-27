@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Functions\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\PostType;
+use App\Http\Requests\Admin\PostTypeRequest;
 use Illuminate\Http\Request;
 
 class PostTypeController extends Controller
@@ -12,7 +15,9 @@ class PostTypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = PostType::paginate(10);
+
+        return view('admin.post-types.index', compact('types'));
     }
 
     /**
@@ -26,9 +31,15 @@ class PostTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostTypeRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $data['slug'] = Helper::generateSlug($data['name'], PostType::class);
+
+        $new_post_type = PostType::create($data);
+
+        return redirect()->route('admin.post-types.index', $new_post_type);
     }
 
     /**
@@ -58,8 +69,14 @@ class PostTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PostType $post_type)
     {
-        //
+        if (!isset($post_type)) {
+            abort(404);
+        }
+
+        $post_type->delete();
+
+        return redirect()->route('admin.post-types.index');
     }
 }
