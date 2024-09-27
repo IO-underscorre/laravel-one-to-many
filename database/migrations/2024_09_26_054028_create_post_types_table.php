@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('post_types', function (Blueprint $table) {
             $table->id();
             $table->string('name', 55);
+            $table->string('slug', 60)->unique();
             $table->string('description', 550)->nullable();
             $table->timestamps();
         });
