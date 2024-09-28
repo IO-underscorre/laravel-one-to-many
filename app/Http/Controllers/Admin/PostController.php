@@ -6,6 +6,7 @@ use App\Functions\Helper;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostRequest;
+use App\Models\PostType;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -25,7 +26,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $types = PostType::all();
+
+        return view('admin.posts.create', compact('types'));
     }
 
     /**
@@ -64,7 +67,9 @@ class PostController extends Controller
             abort(404);
         }
 
-        return view('admin.posts.edit', compact('post'));
+        $types = PostType::all();
+
+        return view('admin.posts.edit', compact('post', 'types'));
     }
 
     /**

@@ -28,6 +28,49 @@
         </div>
     </div>
 
+    <div class="col-12">
+        <div class="position-relative pb-4">
+            <label for="input-body" class="form-label text-primary">
+                Body
+            </label>
+
+            <textarea type="text" class="form-control @error('body') is-invalid @enderror" id="input-body" name="body"
+                aria-errormessage="input-body-error" rows="6" minlength="3" maxlength="65535" placeholder="Body..." required>{!! old('body', $is_update_form ? $item_to_update->body : '') !!}</textarea>
+
+            @error('body')
+                <small id="input-body-error" class="invalid-feedback position-absolute bottom-0 start-0">
+                    {{ $message }}
+                </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="position-relative pb-4">
+            <label for="input-archived-status" class="form-label text-primary">
+                Type
+            </label>
+
+            <select class="form-control @error('post_type_id') is-invalid @enderror" id="input-archived-status"
+                name="post_type_id" aria-errormessage="input-archived-status-error">
+                <option value="" @selected(old('post_type_id', $is_update_form ? $item_to_update->post_type_id : null) == null)>
+                    None
+                </option>
+
+                @foreach ($types as $type)
+                    <option value="{!! $type->id !!}" @selected(old('post_type_id', $is_update_form ? $item_to_update->post_type_id : null) == $type->id)>
+                        {!! $type->name !!}
+                    </option>
+                @endforeach
+            </select>
+            @error('post_type_id')
+                <small id="input-archived-status-error" class="invalid-feedback position-absolute bottom-0 start-0">
+                    {{ $message }}
+                </small>
+            @enderror
+        </div>
+    </div>
+
     @if ($is_update_form)
         <div class="col-12">
             <div class="position-relative pb-4">
@@ -50,24 +93,7 @@
         </div>
     @endif
 
-    <div class="col-12">
-        <div class="position-relative pb-4">
-            <label for="input-body" class="form-label text-primary">
-                Body
-            </label>
-
-            <textarea type="text" class="form-control @error('body') is-invalid @enderror" id="input-body" name="body"
-                aria-errormessage="input-body-error" rows="6" minlength="3" maxlength="65535" placeholder="Body..." required>{!! old('body', $is_update_form ? $item_to_update->body : '') !!}</textarea>
-
-            @error('body')
-                <small id="input-body-error" class="invalid-feedback position-absolute bottom-0 start-0">
-                    {{ $message }}
-                </small>
-            @enderror
-        </div>
-    </div>
-
-    <div class="col-12">
+    <div class="col-12 text-center">
         <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
 </form>

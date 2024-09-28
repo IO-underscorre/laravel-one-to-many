@@ -15,6 +15,7 @@ class Post extends Model
         'body',
         'reading_time',
         'is_archived',
+        'post_type_id',
     ];
 
     public function postType()

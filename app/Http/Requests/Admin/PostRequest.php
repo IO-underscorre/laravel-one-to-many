@@ -25,6 +25,7 @@ class PostRequest extends FormRequest
             'title' => 'required|min:3|max:150',
             'body' => 'required|min:3|max:65535',
             'is_archived' => 'required|boolean',
+            'post_type_id' => 'nullable|exists:post_types,id',
         ];
     }
 
