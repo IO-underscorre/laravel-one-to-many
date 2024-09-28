@@ -31,16 +31,17 @@
 
                                 <td class="text-center col-1">
                                     <menu class="d-flex justify-content-center gap-1">
+                                        <li>
+                                            <form action="{{ route('admin.post-types.destroy', $type) }}" method="POST">
+                                                @csrf
 
-                                        <form action="{{ route('admin.post-types.destroy', $type) }}" method="POST">
-                                            @csrf
+                                                @method('DELETE')
 
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-sm btn-danger">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </form>
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </li>
                                     </menu>
                                 </td>
                             </tr>
@@ -83,9 +84,11 @@
 
                                 <td class="text-center col-3">
                                     <menu class="d-flex justify-content-center gap-1">
-                                        <button type="submit" class="btn btn-sm btn-primary">
-                                            <i class="fa-solid fa-paper-plane"></i>
-                                        </button>
+                                        <li>
+                                            <button type="submit" class="btn btn-sm btn-primary">
+                                                <i class="fa-solid fa-paper-plane"></i>
+                                            </button>
+                                        </li>
                                     </menu>
                                 </td>
                             </form>
