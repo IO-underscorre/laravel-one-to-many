@@ -26,6 +26,26 @@
 
                 <li class="list-group-item">
                     <strong class="d-block ms-3 text-primary">
+                        Slug:
+                    </strong>
+
+                    <span class="fs-4">
+                        {{ $post['slug'] }}
+                    </span>
+                </li>
+
+                <li class="list-group-item">
+                    <strong class="d-block ms-3 text-primary">
+                        Type:
+                    </strong>
+
+                    <span class="fs-4">
+                        {{ isset($post->postType) ? $post->postType->name : 'None' }}
+                    </span>
+                </li>
+
+                <li class="list-group-item">
+                    <strong class="d-block ms-3 text-primary">
                         Body:
                     </strong>
 
@@ -51,16 +71,6 @@
 
                     <span class="fs-4">
                         {{ $post['is_archived'] ? 'Yes' : 'No' }}
-                    </span>
-                </li>
-
-                <li class="list-group-item">
-                    <strong class="d-block ms-3 text-primary">
-                        Slug:
-                    </strong>
-
-                    <span class="fs-4">
-                        {{ $post['slug'] }}
                     </span>
                 </li>
 
