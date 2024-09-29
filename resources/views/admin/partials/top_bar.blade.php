@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark admin-top-bar">
     <div class="container-fluid px-xxl-4">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{!! Vite::asset('resources/images/logo.png') !!}" alt="{{ config('app.name', 'Laravel') }}">
+            <img style="height: 32px; width: 74px;" src="{!! Vite::asset('resources/images/logo.png') !!}"
+                alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <!-- Right Side Of Navbar -->
